@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Yohan Kenn | El momento se acerca</title>
+
+<style>
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#02030a;
+    color:white;
+    overflow-x:hidden;
+    transition:filter .5s ease;
+}
+
+/* =========================
+   FONDO
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,229,255,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,0,90,.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(130,0,255,.15),
+            transparent 35%
+        );
+
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px
+        );
+
+    background-size:90px 90px;
+
+    opacity:.12;
+
+    animation:stars 20s linear infinite;
+
+    z-index:-2;
+}
+
+@keyframes stars{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-90px);
+    }
+
+}
+
+/* =========================
+   LUCES
+========================= */
+
+.light{
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.18;
+
+    z-index:-1;
+}
+
+.light.one{
+    background:#00e5ff;
+
+    top:-200px;
+    left:-200px;
+}
+
+.light.two{
+    background:#ff0055;
+
+    bottom:-200px;
+    right:-200px;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+
+    width:92%;
+
+    max-width:1050px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:50px 0;
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(10px);
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    margin-bottom:20px;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        box-shadow:
+            0 0 10px rgba(0,229,255,.2);
+    }
+
+    50%{
+        box-shadow:
+            0 0 30px rgba(0,229,255,.6);
+    }
+
+}
+
+/* =========================
+   TITULO
+========================= */
+
+h1{
+
+    font-size:clamp(55px,10vw,110px);
+
+    font-weight:900;
+
+    letter-spacing:8px;
+
+    background:linear-gradient(
+        90deg,
+        #00e5ff,
+        #ffffff,
+        #ff0055,
+        #00e5ff
+    );
+
+    background-size:300%;
+
+    background-clip:text;
+
+    color:transparent;
+
+    animation:gradient 5s linear infinite;
+
+    text-shadow:
+        0 0 25px rgba(0,229,255,.25);
+}
+
+@keyframes gradient{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+
+}
+
+.subtitle{
+
+    margin-top:10px;
+
+    font-size:clamp(18px,3vw,28px);
+
+    color:#aaa;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+}
+
+/* =========================
+   TARJETA
+========================= */
+
+.card{
+
+    margin-top:45px;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 0 60px rgba(0,229,255,.08),
+        inset 0 0 30px rgba(255,255,255,.02);
+}
+
+.event-title{
+
+    font-size:clamp(22px,4vw,36px);
+
+    margin-bottom:10px;
+}
+
+.event-date{
+
+    color:#00e5ff;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+}
+
+/* =========================
+   CUENTA REGRESIVA
+========================= */
+
+.countdown{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+    margin-top:35px;
+}
+
+.box{
+
+    position:relative;
+
+    padding:25px 10px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,229,255,.08),
+            rgba(255,0,90,.05)
+        );
+
+    border:
+        1px solid
+        rgba(0,229,255,.4);
+
+    overflow:hidden;
+}
+
+.box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+
+    height:2px;
+
+    top:0;
+
+    left:-100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00e5ff,
+            transparent
+        );
+
+    animation:
+        scan 3s infinite;
+}
+
+@keyframes scan{
+
+    0%{
+        left:-100%;
+    }
+
+    50%,100%{
+        left:100%;
+    }
+
+}
+
+.number{
+
+    font-size:
+        clamp(40px,7vw,70px);
+
+    font-weight:900;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #00e5ff,
+        0 0 30px rgba(0,229,255,.5);
+}
+
+.label{
+
+    margin-top:8px;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    color:#aaa;
+
+    text-transform:uppercase;
+}
+
+/* =========================
+   CALENDARIO
+========================= */
+
+.calendar-title{
+
+    margin-top:45px;
+
+    margin-bottom:20px;
+
+    color:#ddd;
+
+    font-size:18px;
+}
+
+.calendar{
+
+    margin:auto;
+
+    width:100%;
+
+    max-width:500px;
+
+    border-collapse:
+        separate;
+
+    border-spacing:5px;
+}
+
+.calendar th{
+
+    color:#00e5ff;
+
+    font-size:13px;
+
+    padding:8px;
+}
+
+.calendar td{
+
+    padding:12px;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:#aaa;
+}
+
+.calendar .highlight{
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff0055,
+            #ff1744
+        );
+
+    color:white;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,0,85,.8),
+
+        0 0 40px
+        rgba(255,0,85,.3);
+
+    transform:scale(1.08);
+}
+
+/* =========================
+   MUSICA
+========================= */
+
+.music-button{
+
+    margin-top:35px;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.4);
+
+    background:
+        rgba(255,255,255,.07);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.music-button:hover{
+
+    background:
+        rgba(0,229,255,.15);
+
+    box-shadow:
+        0 0 20px
+        rgba(0,229,255,.4);
+
+    transform:scale(1.05);
+}
+
+.music-status{
+
+    margin-top:10px;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+/* =========================
+   BOTON TIKTOK
+========================= */
+
+.tiktok{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:25px;
+
+    padding:17px 35px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    background:#050505;
+
+    border:2px solid white;
+
+    transition:.3s;
+}
+
+.tiktok:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        -5px 0 25px
+        rgba(0,242,234,.6),
+
+        5px 0 25px
+        rgba(255,0,80,.6);
+}
+
+/* =========================
+   MENSAJE
+========================= */
+
+.message{
+
+    margin-top:35px;
+
+    font-size:22px;
+
+    color:#ffd54f;
+
+    font-weight:bold;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,213,79,.4);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    margin-top:50px;
+
+    color:#555;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+}
+
+/* =========================
+   EFECTO MUSICA
+========================= */
+
+.epic{
+
+    animation:
+        epic 1s infinite alternate;
+}
+
+@keyframes epic{
+
+    from{
+        filter:brightness(1);
+    }
+
+    to{
+        filter:brightness(1.3);
+    }
+
+}
+
+/* =========================
+   MOVIL
+========================= */
+
+@media(max-width:700px){
+
+    .container{
+        padding:30px 0;
+    }
+
+    .card{
+        padding:25px 15px;
+    }
+
+    .countdown{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .calendar td{
+        padding:9px 5px;
+    }
+
+    h1{
+        letter-spacing:4px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="light one"></div>
+
+<div class="light two"></div>
+
+<div class="container">
+
+```
+<!-- =========================
+     ENCABEZADO
+========================== -->
+
+
+<div class="badge">
+
+    ⚡ PRÓXIMO EVENTO
+
+</div>
+
+
+<h1>
+
+    YOHAN KENN
+
+</h1>
+
+
+<div class="subtitle">
+
+    El momento se acerca
+
+</div>
+
+
+<!-- =========================
+     TARJETA PRINCIPAL
+========================== -->
+
+
+<div class="card">
+
+
+    <div class="event-title">
+
+        🎙️ PREPÁRATE
+
+    </div>
+
+
+    <div class="event-date">
+
+        LUNES 7 DE SEPTIEMBRE · 8:00 PM
+
+    </div>
+
+
+    <!-- =========================
+         CUENTA REGRESIVA
+    ========================== -->
+
+
+    <div class="countdown">
+
+
+        <div class="box">
+
+            <div
+                class="number"
+                id="days">
+
+                00
+
+            </div>
+
+            <div class="label">
+
+                Días
+
+            </div>
+
+        </div>
+
+
+        <div class="box">
+
+            <div
+                class="number"
+                id="hours">
+
+                00
+
+            </div>
+
+            <div class="label">
+
+                Horas
+
+            </div>
+
+        </div>
+
+
+        <div class="box">
+
+            <div
+                class="number"
+                id="minutes">
+
+                00
+
+            </div>
+
+            <div class="label">
+
+                Minutos
+
+            </div>
+
+        </div>
+
+
+        <div class="box">
+
+            <div
+                class="number"
+                id="seconds">
+
+                00
+
+            </div>
+
+            <div class="label">
+
+                Segundos
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         CALENDARIO
+    ========================== -->
+
+
+    <div class="calendar-title">
+
+        📅 MARCA LA FECHA
+
+    </div>
+
+
+    <table class="calendar">
+
+
+        <tr>
+
+            <th>Lun</th>
+
+            <th>Mar</th>
+
+            <th>Mié</th>
+
+            <th>Jue</th>
+
+            <th>Vie</th>
+
+            <th>Sáb</th>
+
+            <th>Dom</th>
+
+        </tr>
+
+
+        <tr>
+
+            <td></td>
+
+            <td>1</td>
+
+            <td>2</td>
+
+            <td>3</td>
+
+            <td>4</td>
+
+            <td>5</td>
+
+            <td>6</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td class="highlight">
+
+                7
+
+            </td>
+
+            <td>8</td>
+
+            <td>9</td>
+
+            <td>10</td>
+
+            <td>11</td>
+
+            <td>12</td>
+
+            <td>13</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>14</td>
+
+            <td>15</td>
+
+            <td>16</td>
+
+            <td>17</td>
+
+            <td>18</td>
+
+            <td>19</td>
+
+            <td>20</td>
+
+        </tr>
+
+
+    </table>
+
+
+    <!-- =========================
+         AUDIO
+
+         Coloca musica.mp3
+         junto a index.html
+    ========================== -->
+
+
+    <audio
+        id="music"
+        preload="auto">
+
+        <source
+            src="./musica.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <button
+        class="music-button"
+        id="musicButton">
+
+        🎵 REPRODUCIR MÚSICA
+
+    </button>
+
+
+    <div
+        class="music-status"
+        id="musicStatus">
+
+        Pulsa para comenzar
+
+    </div>
+
+
+    <!-- =========================
+         TIKTOK
+    ========================== -->
+
+
+    <a
+        class="tiktok"
+
+        href="https://www.tiktok.com/@yohankenn"
+
+        target="_blank"
+
+        rel="noopener noreferrer">
+
+        🎵 VISITAR MI TIKTOK
+
+    </a>
+
+
+    <!-- =========================
+         MENSAJE
+    ========================== -->
+
+
+    <div class="message">
+
+        🔥 ¡UN PEQUEÑO PASO!
+
+    </div>
+
+
+</div>
+
+
+<div class="footer">
+
+    © 2026 YOHAN KENN · NOS VEMOS PRONTO
+
+</div>
+```
+
+</div>
+
+<script>
+
+/* ===================================
+   SISTEMA DE MUSICA
+=================================== */
+
+
+const music =
+    document.getElementById(
+        "music"
+    );
+
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+
+const musicStatus =
+    document.getElementById(
+        "musicStatus"
+    );
+
+
+/*
+    LA CANCIÓN COMIENZA
+    DESDE EL SEGUNDO 0
+*/
+
+const MUSIC_START = 0;
+
+
+/* =========================
+   BOTON DE MUSICA
+========================= */
+
+
+musicButton.addEventListener(
+    "click",
+
+    async function(){
+
+        try{
+
+            /*
+                SI ESTA PAUSADA
+            */
+
+            if(music.paused){
+
+                /*
+                    COMENZAR DESDE EL INICIO
+                */
+
+                music.currentTime =
+                    MUSIC_START;
+
+
+                /*
+                    REPRODUCIR
+                */
+
+                await music.play();
+
+
+                /*
+                    CAMBIAR BOTON
+                */
+
+                musicButton.innerHTML =
+                    "⏸️ PAUSAR MÚSICA";
+
+
+                musicStatus.innerHTML =
+                    "🎵 Música reproduciéndose";
+
+
+                /*
+                    ACTIVAR EFECTO
+                */
+
+                document.body.classList.add(
+                    "epic"
+                );
+
+            }
+
+            else{
+
+                /*
+                    PAUSAR
+                */
+
+                music.pause();
+
+
+                musicButton.innerHTML =
+                    "🎵 REPRODUCIR MÚSICA";
+
+
+                musicStatus.innerHTML =
+                    "🔇 Música pausada";
+
+
+                document.body.classList.remove(
+                    "epic"
+                );
+
+            }
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+
+            musicStatus.innerHTML =
+                "⚠️ No se pudo reproducir el audio. Revisa que musica.mp3 esté en la carpeta.";
+
+        }
+
+    }
+);
+
+
+/*
+    CUANDO TERMINA LA CANCION
+*/
+
+music.addEventListener(
+    "ended",
+
+    function(){
+
+        musicButton.innerHTML =
+            "🎵 REPRODUCIR MÚSICA";
+
+
+        musicStatus.innerHTML =
+            "La música terminó";
+
+
+        document.body.classList.remove(
+            "epic"
+        );
+
+    }
+);
+
+
+/* ===================================
+   CUENTA REGRESIVA
+=================================== */
+
+
+const eventDate =
+    new Date(
+        "September 7, 2026 20:00:00"
+    ).getTime();
+
+
+function updateCountdown(){
+
+
+    const now =
+        new Date().getTime();
+
+
+    const distance =
+        eventDate - now;
+
+
+    /*
+        SI EL EVENTO YA COMENZÓ
+    */
+
+
+    if(distance <= 0){
+
+
+        document.querySelector(
+            ".countdown"
+        ).innerHTML = `
+
+            <div
+                style="
+                    grid-column:1/-1;
+
+                    font-size:35px;
+
+                    font-weight:bold;
+
+                    color:#00ffff;
+
+                    text-shadow:
+                        0 0 20px cyan;
+
+                    padding:30px;
+                "
+            >
+
+                🎉 ¡EL MOMENTO
+                HA LLEGADO! 🎉
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    /*
+        CALCULAR DIAS
+    */
+
+
+    const days =
+        Math.floor(
+            distance /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+        );
+
+
+    /*
+        CALCULAR HORAS
+    */
+
+
+    const hours =
+        Math.floor(
+            (
+                distance %
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            )
+            /
+            (
+                1000 *
+                60 *
+                60
+            )
+        );
+
+
+    /*
+        CALCULAR MINUTOS
+    */
+
+
+    const minutes =
+        Math.floor(
+            (
+                distance %
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+            )
+            /
+            (
+                1000 *
+                60
+            )
+        );
+
+
+    /*
+        CALCULAR SEGUNDOS
+    */
+
+
+    const seconds =
+        Math.floor(
+            (
+                distance %
+                (
+                    1000 *
+                    60
+                )
+            )
+            /
+            1000
+        );
+
+
+    /*
+        MOSTRAR RESULTADOS
+    */
+
+
+    document.getElementById(
+        "days"
+    ).innerText =
+        String(days).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "hours"
+    ).innerText =
+        String(hours).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "minutes"
+    ).innerText =
+        String(minutes).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "seconds"
+    ).innerText =
+        String(seconds).padStart(
+            2,
+            "0"
+        );
+
+}
+
+
+/* ===================================
+   INICIAR CUENTA
+=================================== */
+
+
+updateCountdown();
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+</script>
+
+</body>
+
+</html>
