@@ -12,10 +12,6 @@
 
 <style>
 
-/* =========================
-   CONFIGURACIÓN GENERAL
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -73,7 +69,6 @@ body::after{
         );
 
     background-size:90px 90px;
-
     opacity:.12;
 
     animation:stars 20s linear infinite;
@@ -114,14 +109,12 @@ body::after{
 
 .light.one{
     background:#00e5ff;
-
     top:-200px;
     left:-200px;
 }
 
 .light.two{
     background:#ff0055;
-
     bottom:-200px;
     right:-200px;
 }
@@ -133,7 +126,6 @@ body::after{
 .container{
 
     width:92%;
-
     max-width:1050px;
 
     margin:auto;
@@ -288,8 +280,7 @@ h1{
 
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:18px;
 
@@ -340,8 +331,7 @@ h1{
             transparent
         );
 
-    animation:
-        scan 3s infinite;
+    animation:scan 3s infinite;
 }
 
 @keyframes scan{
@@ -358,8 +348,7 @@ h1{
 
 .number{
 
-    font-size:
-        clamp(40px,7vw,70px);
+    font-size:clamp(40px,7vw,70px);
 
     font-weight:900;
 
@@ -406,8 +395,7 @@ h1{
 
     max-width:500px;
 
-    border-collapse:
-        separate;
+    border-collapse:separate;
 
     border-spacing:5px;
 }
@@ -447,11 +435,8 @@ h1{
     font-weight:bold;
 
     box-shadow:
-        0 0 15px
-        rgba(255,0,85,.8),
-
-        0 0 40px
-        rgba(255,0,85,.3);
+        0 0 15px rgba(255,0,85,.8),
+        0 0 40px rgba(255,0,85,.3);
 
     transform:scale(1.08);
 }
@@ -464,49 +449,55 @@ h1{
 
     margin-top:35px;
 
-    padding:15px 30px;
+    padding:16px 32px;
 
     border-radius:50px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.4);
+    border:1px solid rgba(255,255,255,.4);
 
     background:
-        rgba(255,255,255,.07);
+        linear-gradient(
+            135deg,
+            rgba(0,229,255,.12),
+            rgba(255,0,85,.12)
+        );
 
     color:white;
 
     cursor:pointer;
 
-    font-size:16px;
+    font-size:17px;
+
+    font-weight:bold;
 
     transition:.3s;
 }
 
 .music-button:hover{
 
-    background:
-        rgba(0,229,255,.15);
+    transform:translateY(-3px) scale(1.04);
 
     box-shadow:
-        0 0 20px
-        rgba(0,229,255,.4);
+        0 0 25px rgba(0,229,255,.5);
+}
 
-    transform:scale(1.05);
+.music-button:active{
+
+    transform:scale(.97);
 }
 
 .music-status{
 
-    margin-top:10px;
+    margin-top:12px;
 
-    color:#777;
+    color:#888;
 
     font-size:13px;
+
 }
 
 /* =========================
-   BOTON TIKTOK
+   TIKTOK
 ========================= */
 
 .tiktok{
@@ -547,11 +538,8 @@ h1{
         scale(1.04);
 
     box-shadow:
-        -5px 0 25px
-        rgba(0,242,234,.6),
-
-        5px 0 25px
-        rgba(255,0,80,.6);
+        -5px 0 25px rgba(0,242,234,.6),
+        5px 0 25px rgba(255,0,80,.6);
 }
 
 /* =========================
@@ -569,8 +557,7 @@ h1{
     font-weight:bold;
 
     text-shadow:
-        0 0 15px
-        rgba(255,213,79,.4);
+        0 0 15px rgba(255,213,79,.4);
 }
 
 /* =========================
@@ -611,7 +598,7 @@ h1{
 }
 
 /* =========================
-   MOVIL
+   CELULAR
 ========================= */
 
 @media(max-width:700px){
@@ -625,8 +612,7 @@ h1{
     }
 
     .countdown{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .calendar td{
@@ -652,10 +638,7 @@ h1{
 <div class="container">
 
 ```
-<!-- =========================
-     ENCABEZADO
-========================== -->
-
+<!-- ENCABEZADO -->
 
 <div class="badge">
 
@@ -678,10 +661,7 @@ h1{
 </div>
 
 
-<!-- =========================
-     TARJETA PRINCIPAL
-========================== -->
-
+<!-- TARJETA -->
 
 <div class="card">
 
@@ -700,10 +680,7 @@ h1{
     </div>
 
 
-    <!-- =========================
-         CUENTA REGRESIVA
-    ========================== -->
-
+    <!-- CUENTA REGRESIVA -->
 
     <div class="countdown">
 
@@ -787,10 +764,7 @@ h1{
     </div>
 
 
-    <!-- =========================
-         CALENDARIO
-    ========================== -->
-
+    <!-- CALENDARIO -->
 
     <div class="calendar-title">
 
@@ -805,17 +779,11 @@ h1{
         <tr>
 
             <th>Lun</th>
-
             <th>Mar</th>
-
             <th>Mié</th>
-
             <th>Jue</th>
-
             <th>Vie</th>
-
             <th>Sáb</th>
-
             <th>Dom</th>
 
         </tr>
@@ -824,17 +792,11 @@ h1{
         <tr>
 
             <td></td>
-
             <td>1</td>
-
             <td>2</td>
-
             <td>3</td>
-
             <td>4</td>
-
             <td>5</td>
-
             <td>6</td>
 
         </tr>
@@ -849,15 +811,10 @@ h1{
             </td>
 
             <td>8</td>
-
             <td>9</td>
-
             <td>10</td>
-
             <td>11</td>
-
             <td>12</td>
-
             <td>13</td>
 
         </tr>
@@ -866,17 +823,11 @@ h1{
         <tr>
 
             <td>14</td>
-
             <td>15</td>
-
             <td>16</td>
-
             <td>17</td>
-
             <td>18</td>
-
             <td>19</td>
-
             <td>20</td>
 
         </tr>
@@ -888,14 +839,15 @@ h1{
     <!-- =========================
          AUDIO
 
-         Coloca musica.mp3
-         junto a index.html
+         IMPORTANTE:
+         musica.mp3 debe estar
+         junto a index.html.
     ========================== -->
 
 
     <audio
         id="music"
-        preload="auto">
+        preload="metadata">
 
         <source
             src="./musica.mp3"
@@ -922,10 +874,7 @@ h1{
     </div>
 
 
-    <!-- =========================
-         TIKTOK
-    ========================== -->
-
+    <!-- TIKTOK -->
 
     <a
         class="tiktok"
@@ -941,10 +890,7 @@ h1{
     </a>
 
 
-    <!-- =========================
-         MENSAJE
-    ========================== -->
-
+    <!-- MENSAJE -->
 
     <div class="message">
 
@@ -967,57 +913,71 @@ h1{
 
 <script>
 
-/* ===================================
+/* =========================================
    SISTEMA DE MUSICA
-=================================== */
+========================================= */
 
 
 const music =
-    document.getElementById(
-        "music"
-    );
+    document.getElementById("music");
 
 
 const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
+    document.getElementById("musicButton");
 
 
 const musicStatus =
-    document.getElementById(
-        "musicStatus"
-    );
+    document.getElementById("musicStatus");
 
 
 /*
-    LA CANCIÓN COMIENZA
-    DESDE EL SEGUNDO 0
+    0 significa que la canción
+    empieza desde el principio.
 */
 
 const MUSIC_START = 0;
 
 
-/* =========================
+/* =========================================
+   COMPROBAR QUE EL AUDIO EXISTE
+========================================= */
+
+
+music.addEventListener(
+    "error",
+    function(){
+
+        musicStatus.innerHTML =
+            "❌ No se encontró musica.mp3";
+
+        musicButton.disabled = true;
+
+        musicButton.style.opacity = "0.5";
+
+    }
+);
+
+
+/* =========================================
    BOTON DE MUSICA
-========================= */
+========================================= */
 
 
 musicButton.addEventListener(
     "click",
-
     async function(){
 
         try{
 
-            /*
-                SI ESTA PAUSADA
-            */
+
+            /* SI ESTA PAUSADA */
 
             if(music.paused){
 
+
                 /*
-                    COMENZAR DESDE EL INICIO
+                    Empezar desde
+                    el segundo 0.
                 */
 
                 music.currentTime =
@@ -1025,14 +985,14 @@ musicButton.addEventListener(
 
 
                 /*
-                    REPRODUCIR
+                    Reproducir
                 */
 
                 await music.play();
 
 
                 /*
-                    CAMBIAR BOTON
+                    Cambiar boton
                 */
 
                 musicButton.innerHTML =
@@ -1044,7 +1004,7 @@ musicButton.addEventListener(
 
 
                 /*
-                    ACTIVAR EFECTO
+                    Efecto visual
                 */
 
                 document.body.classList.add(
@@ -1053,11 +1013,11 @@ musicButton.addEventListener(
 
             }
 
+
+            /* SI ESTA REPRODUCIENDO */
+
             else{
 
-                /*
-                    PAUSAR
-                */
 
                 music.pause();
 
@@ -1078,13 +1038,19 @@ musicButton.addEventListener(
 
         }
 
+
         catch(error){
 
-            console.error(error);
+
+            console.error(
+                "Error de audio:",
+                error
+            );
 
 
             musicStatus.innerHTML =
-                "⚠️ No se pudo reproducir el audio. Revisa que musica.mp3 esté en la carpeta.";
+                "⚠️ No se pudo reproducir musica.mp3";
+
 
         }
 
@@ -1092,13 +1058,13 @@ musicButton.addEventListener(
 );
 
 
-/*
-    CUANDO TERMINA LA CANCION
-*/
+/* =========================================
+   CUANDO TERMINA LA CANCION
+========================================= */
+
 
 music.addEventListener(
     "ended",
-
     function(){
 
         musicButton.innerHTML =
@@ -1106,7 +1072,7 @@ music.addEventListener(
 
 
         musicStatus.innerHTML =
-            "La música terminó";
+            "🎵 La música terminó";
 
 
         document.body.classList.remove(
@@ -1117,10 +1083,14 @@ music.addEventListener(
 );
 
 
-/* ===================================
+/* =========================================
    CUENTA REGRESIVA
-=================================== */
+========================================= */
 
+
+/*
+    FECHA DEL EVENTO
+*/
 
 const eventDate =
     new Date(
@@ -1139,10 +1109,7 @@ function updateCountdown(){
         eventDate - now;
 
 
-    /*
-        SI EL EVENTO YA COMENZÓ
-    */
-
+    /* EVENTO TERMINADO */
 
     if(distance <= 0){
 
@@ -1154,16 +1121,10 @@ function updateCountdown(){
             <div
                 style="
                     grid-column:1/-1;
-
                     font-size:35px;
-
                     font-weight:bold;
-
                     color:#00ffff;
-
-                    text-shadow:
-                        0 0 20px cyan;
-
+                    text-shadow:0 0 20px cyan;
                     padding:30px;
                 "
             >
@@ -1181,10 +1142,7 @@ function updateCountdown(){
     }
 
 
-    /*
-        CALCULAR DIAS
-    */
-
+    /* DIAS */
 
     const days =
         Math.floor(
@@ -1198,10 +1156,7 @@ function updateCountdown(){
         );
 
 
-    /*
-        CALCULAR HORAS
-    */
-
+    /* HORAS */
 
     const hours =
         Math.floor(
@@ -1223,10 +1178,7 @@ function updateCountdown(){
         );
 
 
-    /*
-        CALCULAR MINUTOS
-    */
-
+    /* MINUTOS */
 
     const minutes =
         Math.floor(
@@ -1246,10 +1198,7 @@ function updateCountdown(){
         );
 
 
-    /*
-        CALCULAR SEGUNDOS
-    */
-
+    /* SEGUNDOS */
 
     const seconds =
         Math.floor(
@@ -1265,10 +1214,7 @@ function updateCountdown(){
         );
 
 
-    /*
-        MOSTRAR RESULTADOS
-    */
-
+    /* MOSTRAR DIAS */
 
     document.getElementById(
         "days"
@@ -1279,6 +1225,8 @@ function updateCountdown(){
         );
 
 
+    /* MOSTRAR HORAS */
+
     document.getElementById(
         "hours"
     ).innerText =
@@ -1288,6 +1236,8 @@ function updateCountdown(){
         );
 
 
+    /* MOSTRAR MINUTOS */
+
     document.getElementById(
         "minutes"
     ).innerText =
@@ -1296,6 +1246,8 @@ function updateCountdown(){
             "0"
         );
 
+
+    /* MOSTRAR SEGUNDOS */
 
     document.getElementById(
         "seconds"
@@ -1308,9 +1260,9 @@ function updateCountdown(){
 }
 
 
-/* ===================================
-   INICIAR CUENTA
-=================================== */
+/* =========================================
+   INICIAR
+========================================= */
 
 
 updateCountdown();
