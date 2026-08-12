@@ -10,9 +10,9 @@
 
 <style>
 
-/* =========================
+/* =====================================================
    CONFIGURACIÓN GENERAL
-========================= */
+===================================================== */
 
 *{
     margin:0;
@@ -30,13 +30,15 @@ body{
     background:#02030a;
     color:white;
     overflow-x:hidden;
-    transition:filter .5s ease;
+    transition:
+        background 1s ease,
+        filter .5s ease;
 }
 
 
-/* =========================
+/* =====================================================
    FONDO
-========================= */
+===================================================== */
 
 body::before{
     content:"";
@@ -61,6 +63,7 @@ body::before{
         );
 
     z-index:-3;
+    transition:1s;
 }
 
 body::after{
@@ -97,9 +100,63 @@ body::after{
 }
 
 
-/* =========================
+/* =====================================================
+   MODO SECRETO AL MANTENER Y
+===================================================== */
+
+body.secret-mode{
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #142b70 0%,
+            #05051c 35%,
+            #000 100%
+        );
+
+    filter:brightness(1.15);
+}
+
+body.secret-mode::before{
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,180,255,.45),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(90,0,255,.40),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(0,100,255,.35),
+            transparent 35%
+        );
+}
+
+body.secret-mode::after{
+    opacity:.45;
+    background-size:55px 55px;
+    animation:secretStars 5s linear infinite;
+}
+
+@keyframes secretStars{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-55px);
+    }
+
+}
+
+
+/* =====================================================
    LUCES
-========================= */
+===================================================== */
 
 .light{
     position:fixed;
@@ -131,9 +188,9 @@ body::after{
 }
 
 
-/* =========================
+/* =====================================================
    CONTENEDOR
-========================= */
+===================================================== */
 
 .container{
 
@@ -148,9 +205,9 @@ body::after{
 }
 
 
-/* =========================
+/* =====================================================
    BADGE
-========================= */
+===================================================== */
 
 .badge{
 
@@ -190,9 +247,9 @@ body::after{
 }
 
 
-/* =========================
+/* =====================================================
    TITULO
-========================= */
+===================================================== */
 
 h1{
 
@@ -239,6 +296,48 @@ h1{
 
 }
 
+
+/* =====================================================
+   EMOJIS DEL NOMBRE
+===================================================== */
+
+.easter-trigger{
+
+    cursor:pointer;
+
+    display:inline-block;
+
+    -webkit-text-fill-color:initial;
+
+    color:white;
+
+    transition:.3s;
+
+    user-select:none;
+}
+
+.easter-trigger:hover{
+
+    transform:
+        scale(1.15)
+        rotate(-3deg);
+
+    filter:
+        drop-shadow(0 0 12px #00e5ff)
+        drop-shadow(0 0 25px #ff4fd8);
+}
+
+.easter-trigger:active{
+
+    transform:
+        scale(.9);
+}
+
+
+/* =====================================================
+   SUBTITULO
+===================================================== */
+
 .subtitle{
 
     margin-top:10px;
@@ -253,9 +352,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    TARJETA
-========================= */
+===================================================== */
 
 .card{
 
@@ -293,9 +392,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    CUENTA REGRESIVA
-========================= */
+===================================================== */
 
 .countdown{
 
@@ -396,9 +495,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    CALENDARIO
-========================= */
+===================================================== */
 
 .calendar-title{
 
@@ -466,9 +565,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    MUSICA
-========================= */
+===================================================== */
 
 .music-area{
 
@@ -551,13 +650,6 @@ h1{
     transform:scale(.97);
 }
 
-.music-button:disabled{
-
-    cursor:not-allowed;
-
-    opacity:.5;
-}
-
 .music-status{
 
     margin-top:12px;
@@ -568,9 +660,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    TIKTOK
-========================= */
+===================================================== */
 
 .tiktok{
 
@@ -618,9 +710,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    MENSAJE
-========================= */
+===================================================== */
 
 .message{
 
@@ -638,9 +730,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer{
 
@@ -654,9 +746,9 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
    EFECTO MUSICA
-========================= */
+===================================================== */
 
 .epic{
 
@@ -677,9 +769,192 @@ h1{
 }
 
 
-/* =========================
+/* =====================================================
+   LLUVIA DE CORAZONES Y ESTRELLAS
+===================================================== */
+
+.falling-item{
+
+    position:fixed;
+
+    top:-60px;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    animation:
+        fall linear forwards;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+@keyframes fall{
+
+    0%{
+
+        transform:
+            translateY(-60px)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:1;
+    }
+
+    50%{
+
+        transform:
+            translateY(50vh)
+            translateX(50px)
+            rotate(180deg)
+            scale(1.1);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translateY(110vh)
+            translateX(-50px)
+            rotate(360deg)
+            scale(.6);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =====================================================
+   ESTRELLA FUGAZ
+===================================================== */
+
+.shooting-star{
+
+    position:fixed;
+
+    width:180px;
+
+    height:3px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white,
+            #00e5ff
+        );
+
+    box-shadow:
+        0 0 10px white,
+        0 0 25px #00e5ff,
+        0 0 45px #00e5ff;
+
+    z-index:9998;
+
+    pointer-events:none;
+
+    transform:
+        rotate(-35deg);
+
+    animation:
+        shootingStar 1.5s
+        ease-out
+        forwards;
+}
+
+@keyframes shootingStar{
+
+    0%{
+
+        transform:
+            translate(0,0)
+            rotate(-35deg);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translate(-650px,650px)
+            rotate(-35deg);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =====================================================
+   MENSAJE SECRETO
+===================================================== */
+
+.secret-message{
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.5);
+
+    padding:20px 30px;
+
+    border-radius:20px;
+
+    background:
+        rgba(0,0,30,.85);
+
+    border:
+        1px solid
+        rgba(0,229,255,.7);
+
+    box-shadow:
+        0 0 40px
+        rgba(0,229,255,.5);
+
+    color:white;
+
+    font-size:20px;
+
+    text-align:center;
+
+    z-index:10000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.5s;
+}
+
+.secret-message.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+
+/* =====================================================
    MOVIL
-========================= */
+===================================================== */
 
 @media(max-width:700px){
 
@@ -718,12 +993,25 @@ h1{
 <div class="light two"></div>
 
 
+<!-- MENSAJE DEL EASTER EGG -->
+
+<div
+    id="secretMessage"
+    class="secret-message">
+
+    🌌 MODO SECRETO ACTIVADO 🌌
+    <br>
+    <small>
+        Encontraste un secreto de Yohan ✨
+    </small>
+
+</div>
+
+
 <div class="container">
 
 
-    <!-- =====================
-         ENCABEZADO
-    ====================== -->
+    <!-- ENCABEZADO -->
 
     <div class="badge">
 
@@ -734,7 +1022,16 @@ h1{
 
     <h1>
 
-        YOHAN KENN 💙⃝✨
+        YOHAN KENN
+
+        <span
+            class="easter-trigger"
+            id="heartTrigger"
+            title="Haz clic aquí">
+
+            💙⃝✨
+
+        </span>
 
     </h1>
 
@@ -746,9 +1043,7 @@ h1{
     </div>
 
 
-    <!-- =====================
-         TARJETA
-    ====================== -->
+    <!-- TARJETA -->
 
     <div class="card">
 
@@ -767,9 +1062,7 @@ h1{
         </div>
 
 
-        <!-- =====================
-             CUENTA REGRESIVA
-        ====================== -->
+        <!-- CUENTA REGRESIVA -->
 
         <div class="countdown">
 
@@ -853,9 +1146,7 @@ h1{
         </div>
 
 
-        <!-- =====================
-             CALENDARIO
-        ====================== -->
+        <!-- CALENDARIO -->
 
         <div class="calendar-title">
 
@@ -927,9 +1218,7 @@ h1{
         </table>
 
 
-        <!-- =====================
-             MUSICA
-        ====================== -->
+        <!-- MUSICA -->
 
         <div class="music-area">
 
@@ -952,15 +1241,6 @@ h1{
 
             </div>
 
-
-            <!--
-                IMPORTANTE:
-
-                Este archivo debe existir
-                junto a index.html:
-
-                musica.mp3
-            -->
 
             <audio
                 id="music"
@@ -994,9 +1274,7 @@ h1{
         </div>
 
 
-        <!-- =====================
-             TIKTOK
-        ====================== -->
+        <!-- TIKTOK -->
 
         <a
             class="tiktok"
@@ -1009,9 +1287,7 @@ h1{
         </a>
 
 
-        <!-- =====================
-             MENSAJE
-        ====================== -->
+        <!-- MENSAJE -->
 
         <div class="message">
 
@@ -1025,7 +1301,7 @@ h1{
 
     <div class="footer">
 
-      NOS VEMOS PRONTO
+        NOS VEMOS PRONTO
 
     </div>
 
@@ -1039,42 +1315,17 @@ h1{
    SISTEMA DE MUSICA
 ===================================================== */
 
-
-/*
-    Buscamos el reproductor
-*/
-
 const music =
     document.getElementById("music");
-
-
-/*
-    Buscamos el botón
-*/
 
 const musicButton =
     document.getElementById("musicButton");
 
-
-/*
-    Buscamos el mensaje
-*/
-
 const musicStatus =
     document.getElementById("musicStatus");
 
-
-/*
-    La canción comenzará
-    desde el segundo 0.
-*/
-
 const MUSIC_START = 0;
 
-
-/* =====================================================
-   COMPROBAR EL AUDIO
-===================================================== */
 
 music.addEventListener(
     "loadedmetadata",
@@ -1086,10 +1337,6 @@ music.addEventListener(
     }
 );
 
-
-/* =====================================================
-   ERROR DEL AUDIO
-===================================================== */
 
 music.addEventListener(
     "error",
@@ -1106,59 +1353,24 @@ music.addEventListener(
 );
 
 
-/* =====================================================
-   BOTÓN DE REPRODUCCIÓN
-===================================================== */
-
 musicButton.addEventListener(
     "click",
     async function(){
 
         try{
 
-
-            /* =========================
-               SI ESTÁ PAUSADA
-            ========================== */
-
             if(music.paused){
-
-
-                /*
-                    Comenzar desde
-                    el segundo 0.
-                */
 
                 music.currentTime =
                     MUSIC_START;
 
-
-                /*
-                    Intentar reproducir.
-                */
-
                 await music.play();
-
-
-                /*
-                    Cambiar botón.
-                */
 
                 musicButton.innerHTML =
                     "⏸️ PAUSAR MÚSICA";
 
-
-                /*
-                    Cambiar mensaje.
-                */
-
                 musicStatus.innerHTML =
                     "🎵 Música reproduciéndose";
-
-
-                /*
-                    Activar efecto.
-                */
 
                 document.body.classList.add(
                     "epic"
@@ -1166,24 +1378,15 @@ musicButton.addEventListener(
 
             }
 
-
-            /* =========================
-               SI ESTÁ REPRODUCIENDO
-            ========================== */
-
             else{
 
-
                 music.pause();
-
 
                 musicButton.innerHTML =
                     "🎵 REPRODUCIR MÚSICA";
 
-
                 musicStatus.innerHTML =
                     "🔇 Música pausada";
-
 
                 document.body.classList.remove(
                     "epic"
@@ -1193,29 +1396,21 @@ musicButton.addEventListener(
 
         }
 
-
         catch(error){
-
 
             console.error(
                 "Error al reproducir:",
                 error
             );
 
-
             musicStatus.innerHTML =
                 "⚠️ No se pudo reproducir musica.mp3";
-
 
         }
 
     }
 );
 
-
-/* =====================================================
-   CUANDO TERMINA LA CANCIÓN
-===================================================== */
 
 music.addEventListener(
     "ended",
@@ -1224,10 +1419,8 @@ music.addEventListener(
         musicButton.innerHTML =
             "🎵 REPRODUCIR MÚSICA";
 
-
         musicStatus.innerHTML =
             "🎵 La música terminó";
-
 
         document.body.classList.remove(
             "epic"
@@ -1241,18 +1434,6 @@ music.addEventListener(
    CUENTA REGRESIVA
 ===================================================== */
 
-
-/*
-    Fecha:
-
-    7 de septiembre de 2026
-    8:00 PM
-
-    La hora se interpreta
-    según la zona horaria
-    del navegador.
-*/
-
 const eventDate =
     new Date(
         "September 7, 2026 20:00:00"
@@ -1261,21 +1442,14 @@ const eventDate =
 
 function updateCountdown(){
 
-
     const now =
         new Date().getTime();
-
 
     const distance =
         eventDate - now;
 
 
-    /* =========================
-       EVENTO TERMINADO
-    ========================== */
-
     if(distance <= 0){
-
 
         document.querySelector(
             ".countdown"
@@ -1299,15 +1473,10 @@ function updateCountdown(){
 
         `;
 
-
         return;
 
     }
 
-
-    /* =========================
-       DIAS
-    ========================== */
 
     const days =
         Math.floor(
@@ -1320,10 +1489,6 @@ function updateCountdown(){
             )
         );
 
-
-    /* =========================
-       HORAS
-    ========================== */
 
     const hours =
         Math.floor(
@@ -1345,10 +1510,6 @@ function updateCountdown(){
         );
 
 
-    /* =========================
-       MINUTOS
-    ========================== */
-
     const minutes =
         Math.floor(
             (
@@ -1367,10 +1528,6 @@ function updateCountdown(){
         );
 
 
-    /* =========================
-       SEGUNDOS
-    ========================== */
-
     const seconds =
         Math.floor(
             (
@@ -1384,10 +1541,6 @@ function updateCountdown(){
             1000
         );
 
-
-    /* =========================
-       MOSTRAR RESULTADOS
-    ========================== */
 
     document.getElementById(
         "days"
@@ -1427,17 +1580,339 @@ function updateCountdown(){
 }
 
 
-/* =====================================================
-   INICIAR CUENTA REGRESIVA
-===================================================== */
-
 updateCountdown();
-
 
 setInterval(
     updateCountdown,
     1000
 );
+
+
+/* =====================================================
+   EASTER EGG 1
+   CLIC EN 💙⃝✨
+===================================================== */
+
+const heartTrigger =
+    document.getElementById(
+        "heartTrigger"
+    );
+
+
+heartTrigger.addEventListener(
+    "click",
+    function(){
+
+        /* Crear muchos corazones
+           y estrellas */
+
+        for(
+            let i = 0;
+            i < 35;
+            i++
+        ){
+
+            createFallingItem();
+
+        }
+
+    }
+);
+
+
+function createFallingItem(){
+
+    const item =
+        document.createElement(
+            "div"
+        );
+
+    item.className =
+        "falling-item";
+
+
+    /* Elegir emoji */
+
+    const emojis = [
+        "💙",
+        "💙",
+        "💙",
+        "✨",
+        "⭐",
+        "🌟",
+        "💫"
+    ];
+
+
+    item.innerText =
+        emojis[
+            Math.floor(
+                Math.random() *
+                emojis.length
+            )
+        ];
+
+
+    /* Posición */
+
+    item.style.left =
+        Math.random() * 100 + "vw";
+
+
+    /* Tamaño */
+
+    item.style.fontSize =
+        (
+            18 +
+            Math.random() * 30
+        ) + "px";
+
+
+    /* Duración */
+
+    item.style.animationDuration =
+        (
+            2.5 +
+            Math.random() * 3
+        ) + "s";
+
+
+    /* Retraso */
+
+    item.style.animationDelay =
+        (
+            Math.random() * .8
+        ) + "s";
+
+
+    document.body.appendChild(
+        item
+    );
+
+
+    /* Eliminar después */
+
+    setTimeout(
+        function(){
+
+            item.remove();
+
+        },
+        6000
+    );
+
+}
+
+
+/* =====================================================
+   EASTER EGG 2
+   MANTENER PRESIONADA LA TECLA Y
+===================================================== */
+
+let yPressed = false;
+
+let secretTimeout;
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        /* Evitar que se repita
+           mientras se mantiene pulsada */
+
+        if(
+            event.key.toLowerCase() === "y"
+            &&
+            !yPressed
+        ){
+
+            yPressed = true;
+
+            document.body.classList.add(
+                "secret-mode"
+            );
+
+
+            /* Mostrar mensaje */
+
+            const message =
+                document.getElementById(
+                    "secretMessage"
+                );
+
+            message.classList.add(
+                "show"
+            );
+
+
+            /* Estrellas adicionales */
+
+            for(
+                let i = 0;
+                i < 20;
+                i++
+            ){
+
+                createFallingItem();
+
+            }
+
+
+            clearTimeout(
+                secretTimeout
+            );
+
+
+            secretTimeout =
+                setTimeout(
+                    function(){
+
+                        message.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    1800
+                );
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keyup",
+    function(event){
+
+        if(
+            event.key.toLowerCase() === "y"
+        ){
+
+            yPressed = false;
+
+            document.body.classList.remove(
+                "secret-mode"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   EASTER EGG 3
+   ESTRELLA FUGAZ DESPUÉS DE UN TIEMPO
+===================================================== */
+
+
+/*
+   Actualmente aparece después de 15 segundos.
+
+   Puedes cambiar 15000 por:
+
+   10000 = 10 segundos
+   20000 = 20 segundos
+   30000 = 30 segundos
+   60000 = 1 minuto
+*/
+
+
+const SHOOTING_STAR_DELAY =
+    15000;
+
+
+setTimeout(
+    function(){
+
+        createShootingStar();
+
+    },
+    SHOOTING_STAR_DELAY
+);
+
+
+function createShootingStar(){
+
+    const star =
+        document.createElement(
+            "div"
+        );
+
+    star.className =
+        "shooting-star";
+
+
+    /* Aparece en una zona
+       aleatoria del cielo */
+
+    star.style.top =
+        (
+            10 +
+            Math.random() * 30
+        ) + "vh";
+
+
+    star.style.left =
+        (
+            70 +
+            Math.random() * 25
+        ) + "vw";
+
+
+    document.body.appendChild(
+        star
+    );
+
+
+    /* Eliminar */
+
+    setTimeout(
+        function(){
+
+            star.remove();
+
+        },
+        1800
+    );
+
+}
+
+
+/* =====================================================
+   ESTRELLAS FUGACES ALEATORIAS
+===================================================== */
+
+/*
+   Después de la primera estrella,
+   aparecerán ocasionalmente otras.
+*/
+
+function randomShootingStar(){
+
+    const delay =
+        25000 +
+        Math.random() * 30000;
+
+
+    setTimeout(
+        function(){
+
+            createShootingStar();
+
+            randomShootingStar();
+
+        },
+        delay
+    );
+
+}
+
+
+randomShootingStar();
+
 
 </script>
 
