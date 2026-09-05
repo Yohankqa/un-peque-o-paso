@@ -1,24 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000">
 
-<title>Yohan Kenn 💙⃝✨ | El momento se acerca</title>
+<title>YOHAN KENN</title>
 
 <style>
-
-/* =====================================================
-   CONFIGURACIÓN GENERAL
-===================================================== */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
 }
 
 html{
@@ -27,1408 +20,1221 @@ html{
 
 body{
     min-height:100vh;
-    background:#02030a;
+    background:
+        radial-gradient(circle at 50% -10%,#3a2608 0%,#090704 25%,#010101 65%);
     color:white;
+    font-family:"Segoe UI",Arial,sans-serif;
     overflow-x:hidden;
-    transition:
-        background 1s ease,
-        filter .5s ease;
 }
-
-
-/* =====================================================
-   FONDO
-===================================================== */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(0,229,255,.20),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(255,0,90,.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(130,0,255,.18),
-            transparent 35%
-        );
-
-    z-index:-3;
-    transition:1s;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.8) 1px,
-            transparent 1px
-        );
-
-    background-size:90px 90px;
-
-    opacity:.12;
-
-    animation:stars 20s linear infinite;
-
-    z-index:-2;
-}
-
-@keyframes stars{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(-90px);
-    }
-
-}
-
-
-/* =====================================================
-   MODO SECRETO AL MANTENER Y
-===================================================== */
-
-body.secret-mode{
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            #142b70 0%,
-            #05051c 35%,
-            #000 100%
-        );
-
-    filter:brightness(1.15);
-}
-
-body.secret-mode::before{
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(0,180,255,.45),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(90,0,255,.40),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(0,100,255,.35),
-            transparent 35%
-        );
-}
-
-body.secret-mode::after{
-    opacity:.45;
-    background-size:55px 55px;
-    animation:secretStars 5s linear infinite;
-}
-
-@keyframes secretStars{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(-55px);
-    }
-
-}
-
-
-/* =====================================================
-   LUCES
-===================================================== */
-
-.light{
-    position:fixed;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    filter:blur(120px);
-
-    opacity:.18;
-
-    z-index:-1;
-
     pointer-events:none;
+    opacity:.35;
+    background:
+        linear-gradient(rgba(255,190,40,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,190,40,.025) 1px,transparent 1px);
+    background-size:55px 55px;
 }
 
-.light.one{
-    background:#00e5ff;
-    top:-200px;
-    left:-200px;
-}
-
-.light.two{
-    background:#ff0055;
-    bottom:-200px;
-    right:-200px;
-}
-
-
-/* =====================================================
-   CONTENEDOR
-===================================================== */
-
-.container{
-
-    width:92%;
-    max-width:1050px;
-
+.page{
+    width:min(1100px,92%);
     margin:auto;
-
-    text-align:center;
-
-    padding:50px 0;
+    position:relative;
+    z-index:2;
 }
 
-
-/* =====================================================
-   BADGE
-===================================================== */
+.hero{
+    min-height:88vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
 
 .badge{
-
-    display:inline-block;
-
-    padding:8px 18px;
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.05);
-
-    backdrop-filter:blur(10px);
-
-    font-size:14px;
-
-    letter-spacing:3px;
-
-    margin-bottom:20px;
-
-    animation:pulse 2s infinite;
+    padding:10px 22px;
+    border:1px solid rgba(255,210,80,.4);
+    border-radius:100px;
+    color:#f5d267;
+    font-size:10px;
+    letter-spacing:4px;
+    background:rgba(255,200,50,.05);
+    box-shadow:0 0 30px rgba(255,170,20,.1);
 }
 
-@keyframes pulse{
+.name{
+    margin-top:35px;
+    font-size:clamp(55px,12vw,145px);
+    line-height:.85;
+    letter-spacing:clamp(3px,1vw,12px);
+    font-weight:950;
+    cursor:pointer;
+    user-select:none;
 
-    0%,100%{
-        box-shadow:
-            0 0 10px rgba(0,229,255,.2);
-    }
-
-    50%{
-        box-shadow:
-            0 0 30px rgba(0,229,255,.6);
-    }
-
-}
-
-
-/* =====================================================
-   TITULO
-===================================================== */
-
-h1{
-
-    font-size:clamp(55px,10vw,110px);
-
-    font-weight:900;
-
-    letter-spacing:8px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00e5ff,
-            #ffffff,
-            #ff0055,
-            #00e5ff
-        );
-
-    background-size:300%;
-
-    background-clip:text;
+    background:linear-gradient(
+        180deg,
+        #fffbd5,
+        #ffe878 18%,
+        #d99a16 42%,
+        #704000 63%,
+        #ffd84e 80%,
+        #6c3d00
+    );
 
     -webkit-background-clip:text;
-
+    background-clip:text;
     color:transparent;
 
-    -webkit-text-fill-color:transparent;
-
-    animation:gradient 5s linear infinite;
-
-    text-shadow:
-        0 0 25px rgba(0,229,255,.25);
-}
-
-@keyframes gradient{
-
-    0%{
-        background-position:0%;
-    }
-
-    100%{
-        background-position:300%;
-    }
-
-}
-
-
-/* =====================================================
-   EMOJIS DEL NOMBRE
-===================================================== */
-
-.easter-trigger{
-
-    cursor:pointer;
-
-    display:inline-block;
-
-    -webkit-text-fill-color:initial;
-
-    color:white;
+    filter:
+        drop-shadow(0 0 15px rgba(255,190,30,.25));
 
     transition:.3s;
-
-    user-select:none;
 }
 
-.easter-trigger:hover{
-
-    transform:
-        scale(1.15)
-        rotate(-3deg);
-
+.name:hover{
+    transform:scale(1.035);
     filter:
-        drop-shadow(0 0 12px #00e5ff)
-        drop-shadow(0 0 25px #ff4fd8);
+        drop-shadow(0 0 25px rgba(255,220,80,.7))
+        drop-shadow(0 0 80px rgba(255,130,0,.3));
 }
-
-.easter-trigger:active{
-
-    transform:
-        scale(.9);
-}
-
-
-/* =====================================================
-   SUBTITULO
-===================================================== */
 
 .subtitle{
-
-    margin-top:10px;
-
-    font-size:clamp(18px,3vw,28px);
-
-    color:#aaa;
-
+    margin-top:35px;
+    color:#888;
+    font-size:13px;
     letter-spacing:5px;
-
     text-transform:uppercase;
 }
 
-
-/* =====================================================
-   TARJETA
-===================================================== */
-
-.card{
-
-    margin-top:45px;
-
-    padding:40px;
-
+.main-card{
+    padding:50px 25px;
     border-radius:30px;
-
-    background:rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    backdrop-filter:blur(18px);
-
-    box-shadow:
-        0 0 60px rgba(0,229,255,.08),
-        inset 0 0 30px rgba(255,255,255,.02);
+    border:1px solid rgba(255,200,60,.15);
+    background:rgba(255,255,255,.025);
+    backdrop-filter:blur(20px);
+    text-align:center;
+    box-shadow:0 30px 100px #000;
 }
 
-.event-title{
-
-    font-size:clamp(22px,4vw,36px);
-
-    margin-bottom:10px;
+.card-title{
+    color:#f3ca4e;
+    font-size:11px;
+    letter-spacing:5px;
+    margin-bottom:20px;
 }
 
 .event-date{
-
-    color:#00e5ff;
-
-    font-size:18px;
-
-    letter-spacing:2px;
+    font-size:clamp(20px,4vw,36px);
+    font-weight:800;
 }
-
-
-/* =====================================================
-   CUENTA REGRESIVA
-===================================================== */
 
 .countdown{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:18px;
-
-    margin-top:35px;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    max-width:700px;
+    margin:35px auto;
 }
 
-.box{
-
-    position:relative;
-
-    padding:25px 10px;
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,229,255,.08),
-            rgba(255,0,90,.05)
-        );
-
-    border:
-        1px solid
-        rgba(0,229,255,.4);
-
-    overflow:hidden;
+.time-box{
+    padding:22px 8px;
+    border:1px solid rgba(255,200,60,.1);
+    border-radius:18px;
+    background:rgba(255,190,30,.025);
 }
 
-.box::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:100%;
-
-    height:2px;
-
-    top:0;
-
-    left:-100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #00e5ff,
-            transparent
-        );
-
-    animation:scan 3s infinite;
-}
-
-@keyframes scan{
-
-    0%{
-        left:-100%;
-    }
-
-    50%,100%{
-        left:100%;
-    }
-
-}
-
-.number{
-
-    font-size:
-        clamp(40px,7vw,70px);
-
+.time-number{
+    color:#f7d052;
+    font-size:clamp(28px,6vw,52px);
     font-weight:900;
-
-    color:white;
-
-    text-shadow:
-        0 0 10px #00e5ff,
-        0 0 30px rgba(0,229,255,.5);
 }
 
-.label{
-
-    margin-top:8px;
-
-    font-size:14px;
-
+.time-label{
+    color:#666;
+    font-size:9px;
     letter-spacing:3px;
-
-    color:#aaa;
-
-    text-transform:uppercase;
-}
-
-
-/* =====================================================
-   CALENDARIO
-===================================================== */
-
-.calendar-title{
-
-    margin-top:45px;
-
-    margin-bottom:20px;
-
-    color:#ddd;
-
-    font-size:18px;
+    margin-top:5px;
 }
 
 .calendar{
-
-    margin:auto;
-
-    width:100%;
-
-    max-width:500px;
-
-    border-collapse:separate;
-
-    border-spacing:5px;
+    max-width:450px;
+    margin:40px auto;
+    padding:25px;
+    border:1px solid rgba(255,200,60,.1);
+    border-radius:22px;
 }
 
-.calendar th{
-
-    color:#00e5ff;
-
-    font-size:13px;
-
-    padding:8px;
+.calendar-title{
+    color:#ddd;
+    margin-bottom:20px;
+    letter-spacing:2px;
 }
 
-.calendar td{
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+}
 
-    padding:12px;
+.calendar-grid div{
+    padding:8px 2px;
+    font-size:12px;
+    color:#777;
+}
 
-    border-radius:10px;
-
-    background:
-        rgba(255,255,255,.04);
-
+.calendar-grid .day{
     color:#aaa;
 }
 
-.calendar .highlight{
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff0055,
-            #ff1744
-        );
-
-    color:white;
-
-    font-weight:bold;
-
-    box-shadow:
-        0 0 15px rgba(255,0,85,.8),
-        0 0 40px rgba(255,0,85,.3);
-
-    transform:scale(1.08);
+.special{
+    background:linear-gradient(145deg,#ffe978,#a96700);
+    color:#080808!important;
+    font-weight:900;
+    border-radius:9px;
+    box-shadow:0 0 30px rgba(255,190,30,.55);
 }
 
-
-/* =====================================================
-   MUSICA
-===================================================== */
-
-.music-area{
-
-    margin-top:35px;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    background:
-        rgba(0,0,0,.25);
-
-    border:
-        1px solid
-        rgba(0,229,255,.18);
-}
-
-.music-icon{
-
-    font-size:40px;
-
-    margin-bottom:10px;
-
-    animation:musicPulse 1.5s infinite;
-}
-
-@keyframes musicPulse{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.15);
-    }
-
+.music{
+    margin:30px 0;
 }
 
 .music-button{
-
-    padding:16px 32px;
-
-    border-radius:50px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.4);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,229,255,.15),
-            rgba(255,0,85,.15)
-        );
-
-    color:white;
-
+    padding:15px 30px;
+    border-radius:100px;
+    border:1px solid rgba(255,210,80,.5);
+    background:rgba(255,190,30,.06);
+    color:#f7d052;
+    font-weight:800;
+    font-size:10px;
+    letter-spacing:3px;
     cursor:pointer;
-
-    font-size:17px;
-
-    font-weight:bold;
-
     transition:.3s;
 }
 
 .music-button:hover{
-
-    transform:
-        translateY(-3px)
-        scale(1.04);
-
-    box-shadow:
-        0 0 25px
-        rgba(0,229,255,.5);
+    transform:translateY(-3px);
+    box-shadow:0 0 35px rgba(255,190,30,.25);
 }
 
-.music-button:active{
-
-    transform:scale(.97);
+.music-button.playing{
+    background:rgba(255,190,30,.18);
 }
-
-.music-status{
-
-    margin-top:12px;
-
-    color:#888;
-
-    font-size:13px;
-}
-
-
-/* =====================================================
-   TIKTOK
-===================================================== */
 
 .tiktok{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:12px;
-
-    margin-top:25px;
-
-    padding:17px 35px;
-
-    border-radius:50px;
-
-    text-decoration:none;
-
+    display:inline-block;
+    margin-top:15px;
+    padding:14px 25px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:100px;
     color:white;
-
-    font-size:19px;
-
-    font-weight:bold;
-
-    background:#050505;
-
-    border:2px solid white;
-
-    transition:.3s;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:2px;
 }
 
-.tiktok:hover{
-
-    transform:
-        translateY(-5px)
-        scale(1.04);
-
-    box-shadow:
-        -5px 0 25px
-        rgba(0,242,234,.6),
-
-        5px 0 25px
-        rgba(255,0,80,.6);
-}
-
-
-/* =====================================================
-   MENSAJE
-===================================================== */
-
-.message{
-
-    margin-top:35px;
-
-    font-size:22px;
-
-    color:#ffd54f;
-
-    font-weight:bold;
-
-    text-shadow:
-        0 0 15px
-        rgba(255,213,79,.4);
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.footer{
-
-    margin-top:50px;
-
+.final-message{
+    margin-top:60px;
     color:#555;
+    font-size:9px;
+    letter-spacing:4px;
+}
 
-    font-size:13px;
+footer{
+    text-align:center;
+    padding:40px;
+    color:#444;
+    font-size:9px;
+    letter-spacing:4px;
+}
 
+
+/* =====================================================
+   ESCENA DEL DRAGÓN
+===================================================== */
+
+.dragon-overlay{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        radial-gradient(circle at center,
+        rgba(255,180,20,.25),
+        rgba(0,0,0,.92) 45%,
+        #000 100%);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.dragon-overlay.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+#dragonCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+.dragon-scene{
+    position:relative;
+    width:min(1100px,100vw);
+    height:min(850px,100vh);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:scale(.15) translateY(250px);
+    opacity:0;
+}
+
+.dragon-overlay.active .dragon-scene{
+    animation:
+        dragonAppear 1.8s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+@keyframes dragonAppear{
+
+    0%{
+        transform:scale(.12) translateY(300px);
+        opacity:0;
+        filter:blur(30px);
+    }
+
+    35%{
+        opacity:1;
+    }
+
+    60%{
+        transform:scale(1.08) translateY(-10px);
+        filter:blur(0);
+    }
+
+    100%{
+        transform:scale(1) translateY(0);
+        opacity:1;
+    }
+}
+
+.dragon-glow{
+    position:absolute;
+    width:75%;
+    height:75%;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(255,220,90,.38),
+        rgba(255,100,0,.12) 35%,
+        transparent 70%
+    );
+    filter:blur(45px);
+    animation:pulseGlow 1.5s infinite alternate;
+}
+
+@keyframes pulseGlow{
+    from{transform:scale(.85);opacity:.5}
+    to{transform:scale(1.15);opacity:1}
+}
+
+
+/* =====================================================
+   DRAGÓN
+===================================================== */
+
+.dragon-svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
+    position:relative;
+    z-index:5;
+}
+
+.dragon-body{
+    transform-origin:700px 500px;
+    animation:dragonBreath 3s ease-in-out infinite;
+}
+
+@keyframes dragonBreath{
+    0%,100%{transform:translateY(0) scaleY(1)}
+    50%{transform:translateY(-10px) scaleY(1.02)}
+}
+
+.wing-left{
+    transform-origin:580px 430px;
+    animation:wingLeft 2.2s ease-in-out infinite;
+}
+
+.wing-right{
+    transform-origin:820px 430px;
+    animation:wingRight 2.2s ease-in-out infinite;
+}
+
+@keyframes wingLeft{
+    0%,100%{transform:rotate(0)}
+    50%{transform:rotate(-7deg)}
+}
+
+@keyframes wingRight{
+    0%,100%{transform:rotate(0)}
+    50%{transform:rotate(7deg)}
+}
+
+.eye{
+    animation:eyeGlow .8s infinite alternate;
+}
+
+@keyframes eyeGlow{
+    from{filter:drop-shadow(0 0 8px #ff7000)}
+    to{
+        filter:
+        drop-shadow(0 0 20px white)
+        drop-shadow(0 0 50px #ff6500);
+    }
+}
+
+
+/* =====================================================
+   FUEGO
+===================================================== */
+
+.fire{
+    position:absolute;
+    z-index:20;
+    left:50%;
+    top:61%;
+    width:380px;
+    height:300px;
+    transform:translate(-50%,-50%) scale(.1);
+    opacity:0;
+}
+
+.dragon-overlay.active .fire{
+    animation:
+        fireAppear .8s 1.2s ease-out forwards;
+}
+
+@keyframes fireAppear{
+    to{
+        transform:translate(-50%,-50%) scale(1);
+        opacity:1;
+    }
+}
+
+.fire-core{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:radial-gradient(
+        ellipse,
+        white 0%,
+        #fff7a0 8%,
+        #ffd000 25%,
+        #ff7200 48%,
+        #ff2100 65%,
+        transparent 78%
+    );
+    filter:blur(8px);
+    animation:firePulse .18s infinite alternate;
+}
+
+@keyframes firePulse{
+    from{transform:scale(.85) rotate(-3deg)}
+    to{transform:scale(1.15) rotate(3deg)}
+}
+
+.flame{
+    position:absolute;
+    bottom:0;
+    width:100px;
+    height:190px;
+    border-radius:50% 50% 30% 30%;
+    background:linear-gradient(
+        to top,
+        #ff1600,
+        #ff7000,
+        #ffe76b,
+        white
+    );
+    filter:blur(6px);
+}
+
+.f1{
+    left:10%;
+    animation:flame .25s infinite alternate;
+}
+
+.f2{
+    left:38%;
+    height:240px;
+    animation:flame .18s infinite alternate-reverse;
+}
+
+.f3{
+    right:10%;
+    animation:flame .3s infinite alternate;
+}
+
+@keyframes flame{
+    from{transform:rotate(-8deg) scale(.85)}
+    to{transform:rotate(8deg) scale(1.15)}
+}
+
+
+/* =====================================================
+   FLASH
+===================================================== */
+
+.flash{
+    position:absolute;
+    inset:0;
+    background:white;
+    opacity:0;
+    pointer-events:none;
+    z-index:100;
+}
+
+.dragon-overlay.active .flash{
+    animation:flash .8s ease-out;
+}
+
+@keyframes flash{
+    0%{opacity:.8}
+    15%{opacity:.2}
+    100%{opacity:0}
+}
+
+
+/* =====================================================
+   SECRETO
+===================================================== */
+
+.secret-mode{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:radial-gradient(circle,#251804,#000 70%);
+    opacity:0;
+    visibility:hidden;
+    transition:.7s;
+}
+
+.secret-mode.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.secret-content{
+    padding:30px;
+}
+
+.secret-small{
+    color:#b98720;
+    font-size:10px;
+    letter-spacing:5px;
+}
+
+.secret-title{
+    margin-top:20px;
+    font-size:clamp(45px,9vw,100px);
+    font-weight:950;
+    background:linear-gradient(white,#ffd957,#8e5600);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.secret-text{
+    margin-top:20px;
+    color:#aaa;
+    line-height:2;
     letter-spacing:2px;
 }
 
 
 /* =====================================================
-   EFECTO MUSICA
+   RESPONSIVE
 ===================================================== */
 
-.epic{
-
-    animation:
-        epic 1s infinite alternate;
-}
-
-@keyframes epic{
-
-    from{
-        filter:brightness(1);
-    }
-
-    to{
-        filter:brightness(1.25);
-    }
-
-}
-
-
-/* =====================================================
-   LLUVIA DE CORAZONES Y ESTRELLAS
-===================================================== */
-
-.falling-item{
-
-    position:fixed;
-
-    top:-60px;
-
-    z-index:9999;
-
-    pointer-events:none;
-
-    animation:
-        fall linear forwards;
-
-    will-change:
-        transform,
-        opacity;
-}
-
-@keyframes fall{
-
-    0%{
-
-        transform:
-            translateY(-60px)
-            translateX(0)
-            rotate(0deg)
-            scale(.7);
-
-        opacity:1;
-    }
-
-    50%{
-
-        transform:
-            translateY(50vh)
-            translateX(50px)
-            rotate(180deg)
-            scale(1.1);
-
-        opacity:1;
-    }
-
-    100%{
-
-        transform:
-            translateY(110vh)
-            translateX(-50px)
-            rotate(360deg)
-            scale(.6);
-
-        opacity:0;
-    }
-
-}
-
-
-/* =====================================================
-   ESTRELLA FUGAZ
-===================================================== */
-
-.shooting-star{
-
-    position:fixed;
-
-    width:180px;
-
-    height:3px;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            white,
-            #00e5ff
-        );
-
-    box-shadow:
-        0 0 10px white,
-        0 0 25px #00e5ff,
-        0 0 45px #00e5ff;
-
-    z-index:9998;
-
-    pointer-events:none;
-
-    transform:
-        rotate(-35deg);
-
-    animation:
-        shootingStar 1.5s
-        ease-out
-        forwards;
-}
-
-@keyframes shootingStar{
-
-    0%{
-
-        transform:
-            translate(0,0)
-            rotate(-35deg);
-
-        opacity:0;
-    }
-
-    15%{
-        opacity:1;
-    }
-
-    100%{
-
-        transform:
-            translate(-650px,650px)
-            rotate(-35deg);
-
-        opacity:0;
-    }
-
-}
-
-
-/* =====================================================
-   MENSAJE SECRETO
-===================================================== */
-
-.secret-message{
-
-    position:fixed;
-
-    top:50%;
-
-    left:50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.5);
-
-    padding:20px 30px;
-
-    border-radius:20px;
-
-    background:
-        rgba(0,0,30,.85);
-
-    border:
-        1px solid
-        rgba(0,229,255,.7);
-
-    box-shadow:
-        0 0 40px
-        rgba(0,229,255,.5);
-
-    color:white;
-
-    font-size:20px;
-
-    text-align:center;
-
-    z-index:10000;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.5s;
-}
-
-.secret-message.show{
-
-    opacity:1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
-}
-
-
-/* =====================================================
-   MOVIL
-===================================================== */
-
-@media(max-width:700px){
-
-    .container{
-        padding:30px 0;
-    }
-
-    .card{
-        padding:25px 15px;
-    }
+@media(max-width:600px){
 
     .countdown{
-        grid-template-columns:
-            repeat(2,1fr);
+        gap:5px;
     }
 
-    .calendar td{
-        padding:9px 5px;
+    .time-box{
+        padding:18px 4px;
     }
 
-    h1{
-        letter-spacing:4px;
+    .dragon-scene{
+        width:150vw;
+    }
+
+    .fire{
+        width:250px;
+        height:200px;
     }
 
 }
-
 </style>
-
 </head>
 
 
 <body>
 
+<main class="page">
 
-<div class="light one"></div>
-<div class="light two"></div>
+<section class="hero">
+
+    <div class="badge">
+        PRÓXIMO EVENTO
+    </div>
+
+    <h1
+        class="name"
+        id="dragonTrigger"
+    >
+        YOHAN KENN
+    </h1>
+
+    <p class="subtitle">
+        El momento se acerca
+    </p>
+
+</section>
 
 
-<!-- MENSAJE DEL EASTER EGG -->
+<section class="main-card">
+
+    <div class="card-title">
+        PREPÁRATE
+    </div>
+
+    <div class="event-date">
+        LUNES 7 DE SEPTIEMBRE · 8:00 PM
+    </div>
+
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <div class="time-number" id="days">00</div>
+            <div class="time-label">Días</div>
+        </div>
+
+        <div class="time-box">
+            <div class="time-number" id="hours">00</div>
+            <div class="time-label">Horas</div>
+        </div>
+
+        <div class="time-box">
+            <div class="time-number" id="minutes">00</div>
+            <div class="time-label">Minutos</div>
+        </div>
+
+        <div class="time-box">
+            <div class="time-number" id="seconds">00</div>
+            <div class="time-label">Segundos</div>
+        </div>
+
+    </div>
+
+
+    <div class="calendar">
+
+        <div class="calendar-title">
+            SEPTIEMBRE 2026
+        </div>
+
+        <div class="calendar-grid">
+
+            <div>L</div>
+            <div>M</div>
+            <div>M</div>
+            <div>J</div>
+            <div>V</div>
+            <div>S</div>
+            <div>D</div>
+
+            <div></div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+
+            <div class="special">7</div>
+            <div class="day">8</div>
+            <div class="day">9</div>
+            <div class="day">10</div>
+            <div class="day">11</div>
+            <div class="day">12</div>
+            <div class="day">13</div>
+
+            <div class="day">14</div>
+            <div class="day">15</div>
+            <div class="day">16</div>
+            <div class="day">17</div>
+            <div class="day">18</div>
+            <div class="day">19</div>
+            <div class="day">20</div>
+
+            <div class="day">21</div>
+            <div class="day">22</div>
+            <div class="day">23</div>
+            <div class="day">24</div>
+            <div class="day">25</div>
+            <div class="day">26</div>
+            <div class="day">27</div>
+
+            <div class="day">28</div>
+            <div class="day">29</div>
+            <div class="day">30</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MÚSICA -->
+
+    <div class="music">
+
+        <button
+            id="musicButton"
+            class="music-button"
+        >
+            REPRODUCIR MÚSICA
+        </button>
+
+        <audio
+            id="music"
+            loop
+        >
+            <source src="./musica.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+
+    <a
+        class="tiktok"
+        href="https://www.tiktok.com/@yohankenn"
+        target="_blank"
+    >
+        VISITAR TIKTOK
+    </a>
+
+
+    <div class="final-message">
+        UN PEQUEÑO PASO
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    NOS VEMOS PRONTO
+</footer>
+
+
+<!-- =====================================================
+     ESCENA CINEMATOGRÁFICA
+===================================================== -->
 
 <div
-    id="secretMessage"
-    class="secret-message">
+    class="dragon-overlay"
+    id="dragonOverlay"
+>
 
-    🌌 Me Has Encontado 🌌
-    <br>
-    <small>
-        ✨ Bienvenido A La Habitación De Los Sueños ✨
-    </small>
+    <canvas id="dragonCanvas"></canvas>
+
+    <div class="flash"></div>
+
+    <div class="dragon-scene">
+
+        <div class="dragon-glow"></div>
+
+
+        <svg
+            class="dragon-svg"
+            viewBox="0 0 1400 1000"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+        <defs>
+
+            <linearGradient
+                id="gold"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+            >
+                <stop offset="0" stop-color="#fffbd0"/>
+                <stop offset=".18" stop-color="#ffe26a"/>
+                <stop offset=".4" stop-color="#d69612"/>
+                <stop offset=".62" stop-color="#633700"/>
+                <stop offset=".82" stop-color="#f4c53e"/>
+                <stop offset="1" stop-color="#442300"/>
+            </linearGradient>
+
+
+            <linearGradient
+                id="wing"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+            >
+                <stop offset="0" stop-color="#fff1a0"/>
+                <stop offset=".3" stop-color="#d29518"/>
+                <stop offset=".65" stop-color="#5b3300"/>
+                <stop offset="1" stop-color="#080300"/>
+            </linearGradient>
+
+
+            <radialGradient id="eye">
+                <stop offset="0" stop-color="white"/>
+                <stop offset=".2" stop-color="#fff4a0"/>
+                <stop offset=".5" stop-color="#ffb000"/>
+                <stop offset="1" stop-color="#ff3000"/>
+            </radialGradient>
+
+
+            <filter
+                id="glow"
+                x="-100%"
+                y="-100%"
+                width="300%"
+                height="300%"
+            >
+                <feGaussianBlur
+                    stdDeviation="6"
+                    result="blur"
+                />
+
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+
+        </defs>
+
+
+        <g class="dragon-body">
+
+
+            <!-- ALAS -->
+
+            <g
+                class="wing-left"
+                filter="url(#glow)"
+            >
+
+                <path
+                    d="
+                    M590 430
+                    C460 330 300 180 80 100
+                    C150 210 230 310 320 385
+                    C210 350 110 350 30 390
+                    C180 450 300 470 420 460
+                    C300 540 220 620 170 730
+                    C340 630 470 540 590 470
+                    Z
+                    "
+                    fill="url(#wing)"
+                    stroke="#e8bb42"
+                    stroke-width="10"
+                />
+
+                <g
+                    fill="none"
+                    stroke="#ffe98b"
+                    stroke-width="7"
+                    opacity=".65"
+                >
+                    <path d="M560 430 L80 100"/>
+                    <path d="M530 440 L30 390"/>
+                    <path d="M500 455 L170 730"/>
+                    <path d="M475 450 L320 385"/>
+                </g>
+
+            </g>
+
+
+            <g
+                class="wing-right"
+                filter="url(#glow)"
+            >
+
+                <path
+                    d="
+                    M810 430
+                    C940 330 1100 180 1320 100
+                    C1250 210 1170 310 1080 385
+                    C1190 350 1290 350 1370 390
+                    C1220 450 1100 470 980 460
+                    C1100 540 1180 620 1230 730
+                    C1060 630 930 540 810 470
+                    Z
+                    "
+                    fill="url(#wing)"
+                    stroke="#e8bb42"
+                    stroke-width="10"
+                />
+
+                <g
+                    fill="none"
+                    stroke="#ffe98b"
+                    stroke-width="7"
+                    opacity=".65"
+                >
+                    <path d="M840 430 L1320 100"/>
+                    <path d="M870 440 L1370 390"/>
+                    <path d="M900 455 L1230 730"/>
+                    <path d="M925 450 L1080 385"/>
+                </g>
+
+            </g>
+
+
+            <!-- COLA -->
+
+            <path
+                d="
+                M620 700
+                C500 720 420 820 280 870
+                C170 910 70 870 20 800
+                C150 865 260 820 360 750
+                C460 675 540 640 650 625
+                Z
+                "
+                fill="url(#gold)"
+                stroke="#704000"
+                stroke-width="14"
+                filter="url(#glow)"
+            />
+
+
+            <!-- CUERPO -->
+
+            <ellipse
+                cx="700"
+                cy="600"
+                rx="230"
+                ry="195"
+                fill="url(#gold)"
+                stroke="#633600"
+                stroke-width="15"
+                filter="url(#glow)"
+            />
+
+
+            <!-- PECHO -->
+
+            <path
+                d="
+                M620 480
+                C570 570 585 700 700 765
+                C815 700 830 570 780 480
+                C740 530 660 530 620 480
+                Z
+                "
+                fill="#e6b633"
+                stroke="#633600"
+                stroke-width="10"
+            />
+
+
+            <!-- CUELLO -->
+
+            <path
+                d="
+                M620 530
+                C570 420 575 300 625 220
+                C650 175 750 175 775 220
+                C825 300 830 420 780 530
+                Z
+                "
+                fill="url(#gold)"
+                stroke="#633600"
+                stroke-width="15"
+            />
+
+
+            <!-- CABEZA -->
+
+            <path
+                d="
+                M540 235
+                C530 135 600 60 700 55
+                C800 60 870 135 860 235
+                C850 325 790 375 700 380
+                C610 375 550 325 540 235
+                Z
+                "
+                fill="url(#gold)"
+                stroke="#633600"
+                stroke-width="15"
+                filter="url(#glow)"
+            />
+
+
+            <!-- CUERNOS -->
+
+            <path
+                d="
+                M625 135
+                C540 90 500 30 520 0
+                C570 55 610 70 655 90
+                Z
+                "
+                fill="#fff1a0"
+                stroke="#754800"
+                stroke-width="10"
+            />
+
+            <path
+                d="
+                M775 135
+                C860 90 900 30 880 0
+                C830 55 790 70 745 90
+                Z
+                "
+                fill="#fff1a0"
+                stroke="#754800"
+                stroke-width="10"
+            />
+
+
+            <!-- CRESTA -->
+
+            <path
+                d="
+                M625 105
+                L595 25
+                L660 80
+                L700 0
+                L740 80
+                L805 25
+                L775 105
+                Z
+                "
+                fill="#ffd84e"
+                stroke="#714300"
+                stroke-width="9"
+                filter="url(#glow)"
+            />
+
+
+            <!-- OJOS -->
+
+            <g class="eye">
+
+                <path
+                    d="
+                    M555 220
+                    Q620 160 680 220
+                    Q620 270 555 220
+                    Z
+                    "
+                    fill="url(#eye)"
+                />
+
+                <path
+                    d="
+                    M720 220
+                    Q780 160 845 220
+                    Q780 270 720 220
+                    Z
+                    "
+                    fill="url(#eye)"
+                />
+
+                <ellipse
+                    cx="620"
+                    cy="220"
+                    rx="8"
+                    ry="40"
+                    fill="#120500"
+                />
+
+                <ellipse
+                    cx="780"
+                    cy="220"
+                    rx="8"
+                    ry="40"
+                    fill="#120500"
+                />
+
+            </g>
+
+
+            <!-- HOCICO -->
+
+            <path
+                d="
+                M580 275
+                Q700 230 820 275
+                Q810 350 700 390
+                Q590 350 580 275
+                Z
+                "
+                fill="#a86608"
+                stroke="#5b3200"
+                stroke-width="10"
+            />
+
+
+            <!-- NARIZ -->
+
+            <ellipse
+                cx="650"
+                cy="300"
+                rx="14"
+                ry="10"
+                fill="#190900"
+            />
+
+            <ellipse
+                cx="750"
+                cy="300"
+                rx="14"
+                ry="10"
+                fill="#190900"
+            />
+
+
+            <!-- BOCA -->
+
+            <path
+                d="
+                M580 325
+                Q700 440 820 325
+                Q805 425 700 455
+                Q595 425 580 325
+                Z
+                "
+                fill="#260d00"
+                stroke="#6e3d00"
+                stroke-width="10"
+            />
+
+
+            <!-- DIENTES -->
+
+            <g fill="#fff5c0">
+
+                <path d="M620 355 L640 405 L652 370 Z"/>
+                <path d="M660 380 L680 420 L690 385 Z"/>
+                <path d="M710 385 L720 420 L740 380 Z"/>
+                <path d="M748 370 L760 405 L780 355 Z"/>
+
+            </g>
+
+
+            <!-- GARRAS -->
+
+            <path
+                d="
+                M530 650
+                L455 745
+                L515 710
+                L500 785
+                L555 720
+                L585 650
+                Z
+                "
+                fill="#e8b632"
+                stroke="#633600"
+                stroke-width="9"
+            />
+
+            <path
+                d="
+                M870 650
+                L945 745
+                L885 710
+                L900 785
+                L845 720
+                L815 650
+                Z
+                "
+                fill="#e8b632"
+                stroke="#633600"
+                stroke-width="9"
+            />
+
+        </g>
+
+        </svg>
+
+
+        <div class="fire">
+
+            <div class="fire-core"></div>
+
+            <div class="flame f1"></div>
+
+            <div class="flame f2"></div>
+
+            <div class="flame f3"></div>
+
+        </div>
+
+    </div>
 
 </div>
 
 
-<div class="container">
+<!-- =====================================================
+     SECRETO Y
+===================================================== -->
 
+<div
+    class="secret-mode"
+    id="secretMode"
+>
 
-    <!-- ENCABEZADO -->
+    <div class="secret-content">
 
-    <div class="badge">
+        <div class="secret-small">
+            HAS DESCUBIERTO EL SECRETO
+        </div>
 
-        ⚡ PRÓXIMO EVENTO
+        <div class="secret-title">
+            FELICIDADES
+        </div>
+
+        <div class="secret-text">
+            Me encontraste.<br>
+            Bienvenido a la habitación de los sueños.
+        </div>
 
     </div>
-
-
-    <h1>
-
-        YOHAN KENN
-
-        <span
-            class="easter-trigger"
-            id="heartTrigger"
-            title="Haz clic aquí">
-
-            💙⃝✨
-
-        </span>
-
-    </h1>
-
-
-    <div class="subtitle">
-
-        El momento se acerca
-
-    </div>
-
-
-    <!-- TARJETA -->
-
-    <div class="card">
-
-
-        <div class="event-title">
-
-            🎙️ PREPÁRATE
-
-        </div>
-
-
-        <div class="event-date">
-
-            LUNES 7 DE SEPTIEMBRE · 8:00 PM
-
-        </div>
-
-
-        <!-- CUENTA REGRESIVA -->
-
-        <div class="countdown">
-
-
-            <div class="box">
-
-                <div
-                    class="number"
-                    id="days">
-
-                    00
-
-                </div>
-
-                <div class="label">
-
-                    Días
-
-                </div>
-
-            </div>
-
-
-            <div class="box">
-
-                <div
-                    class="number"
-                    id="hours">
-
-                    00
-
-                </div>
-
-                <div class="label">
-
-                    Horas
-
-                </div>
-
-            </div>
-
-
-            <div class="box">
-
-                <div
-                    class="number"
-                    id="minutes">
-
-                    00
-
-                </div>
-
-                <div class="label">
-
-                    Minutos
-
-                </div>
-
-            </div>
-
-
-            <div class="box">
-
-                <div
-                    class="number"
-                    id="seconds">
-
-                    00
-
-                </div>
-
-                <div class="label">
-
-                    Segundos
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- CALENDARIO -->
-
-        <div class="calendar-title">
-
-            📅 MARCA LA FECHA
-
-        </div>
-
-
-        <table class="calendar">
-
-
-            <tr>
-
-                <th>Lun</th>
-                <th>Mar</th>
-                <th>Mié</th>
-                <th>Jue</th>
-                <th>Vie</th>
-                <th>Sáb</th>
-                <th>Dom</th>
-
-            </tr>
-
-
-            <tr>
-
-                <td></td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-
-            </tr>
-
-
-            <tr>
-
-                <td class="highlight">
-
-                    7
-
-                </td>
-
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-
-            </tr>
-
-
-            <tr>
-
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-                <td>19</td>
-                <td>20</td>
-
-            </tr>
-
-
-        </table>
-
-
-        <!-- MUSICA -->
-
-        <div class="music-area">
-
-
-            <div class="music-icon">
-
-                🎵
-
-            </div>
-
-
-            <div
-                style="
-                    margin-bottom:15px;
-                    color:#ccc;
-                "
-            >
-
-                Ponle música al momento
-
-            </div>
-
-
-            <audio
-                id="music"
-                preload="auto">
-
-                <source
-                    src="./musica.mp3"
-                    type="audio/mpeg">
-
-            </audio>
-
-
-            <button
-                class="music-button"
-                id="musicButton">
-
-                🎵 REPRODUCIR MÚSICA
-
-            </button>
-
-
-            <div
-                class="music-status"
-                id="musicStatus">
-
-                Pulsa para comenzar
-
-            </div>
-
-
-        </div>
-
-
-        <!-- TIKTOK -->
-
-        <a
-            class="tiktok"
-            href="https://www.tiktok.com/@yohankenn"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            🎵 VISITAR MI TIKTOK
-
-        </a>
-
-
-        <!-- MENSAJE -->
-
-        <div class="message">
-
-            🔥 ¡UN PEQUEÑO PASO!
-
-        </div>
-
-
-    </div>
-
-
-    <div class="footer">
-
-        NOS VEMOS PRONTO
-
-    </div>
-
 
 </div>
 
 
 <script>
-
-/* =====================================================
-   SISTEMA DE MUSICA
-===================================================== */
-
-const music =
-    document.getElementById("music");
-
-const musicButton =
-    document.getElementById("musicButton");
-
-const musicStatus =
-    document.getElementById("musicStatus");
-
-const MUSIC_START = 0;
-
-
-music.addEventListener(
-    "loadedmetadata",
-    function(){
-
-        musicStatus.innerHTML =
-            "🎵 Audio listo";
-
-    }
-);
-
-
-music.addEventListener(
-    "error",
-    function(){
-
-        musicStatus.innerHTML =
-            "❌ No se pudo cargar musica.mp3";
-
-        console.error(
-            "No se pudo cargar musica.mp3"
-        );
-
-    }
-);
-
-
-musicButton.addEventListener(
-    "click",
-    async function(){
-
-        try{
-
-            if(music.paused){
-
-                music.currentTime =
-                    MUSIC_START;
-
-                await music.play();
-
-                musicButton.innerHTML =
-                    "⏸️ PAUSAR MÚSICA";
-
-                musicStatus.innerHTML =
-                    "🎵 Música reproduciéndose";
-
-                document.body.classList.add(
-                    "epic"
-                );
-
-            }
-
-            else{
-
-                music.pause();
-
-                musicButton.innerHTML =
-                    "🎵 REPRODUCIR MÚSICA";
-
-                musicStatus.innerHTML =
-                    "🔇 Música pausada";
-
-                document.body.classList.remove(
-                    "epic"
-                );
-
-            }
-
-        }
-
-        catch(error){
-
-            console.error(
-                "Error al reproducir:",
-                error
-            );
-
-            musicStatus.innerHTML =
-                "⚠️ No se pudo reproducir musica.mp3";
-
-        }
-
-    }
-);
-
-
-music.addEventListener(
-    "ended",
-    function(){
-
-        musicButton.innerHTML =
-            "🎵 REPRODUCIR MÚSICA";
-
-        musicStatus.innerHTML =
-            "🎵 La música terminó";
-
-        document.body.classList.remove(
-            "epic"
-        );
-
-    }
-);
-
 
 /* =====================================================
    CUENTA REGRESIVA
@@ -1440,179 +1246,335 @@ const eventDate =
     ).getTime();
 
 
-function updateCountdown(){
+function countdown(){
 
-    const now =
-        new Date().getTime();
+    const diff =
+        eventDate - Date.now();
 
-    const distance =
-        eventDate - now;
+    if(diff <= 0){
 
-
-    if(distance <= 0){
-
-        document.querySelector(
-            ".countdown"
-        ).innerHTML = `
-
-            <div
-                style="
-                    grid-column:1/-1;
-                    font-size:35px;
-                    font-weight:bold;
-                    color:#00ffff;
-                    text-shadow:0 0 20px cyan;
-                    padding:30px;
-                "
-            >
-
-                🎉 ¡EL MOMENTO
-                HA LLEGADO! 🎉
-
-            </div>
-
-        `;
+        days.textContent="00";
+        hours.textContent="00";
+        minutes.textContent="00";
+        seconds.textContent="00";
 
         return;
-
     }
 
-
-    const days =
-        Math.floor(
-            distance /
-            (
-                1000 *
-                60 *
-                60 *
-                24
+    days.textContent =
+        String(
+            Math.floor(
+                diff /
+                86400000
             )
-        );
+        ).padStart(2,"0");
 
-
-    const hours =
-        Math.floor(
-            (
-                distance %
-                (
-                    1000 *
-                    60 *
-                    60 *
-                    24
-                )
+    hours.textContent =
+        String(
+            Math.floor(
+                diff %
+                86400000 /
+                3600000
             )
-            /
-            (
-                1000 *
-                60 *
-                60
+        ).padStart(2,"0");
+
+    minutes.textContent =
+        String(
+            Math.floor(
+                diff %
+                3600000 /
+                60000
             )
-        );
+        ).padStart(2,"0");
 
-
-    const minutes =
-        Math.floor(
-            (
-                distance %
-                (
-                    1000 *
-                    60 *
-                    60
-                )
+    seconds.textContent =
+        String(
+            Math.floor(
+                diff %
+                60000 /
+                1000
             )
-            /
-            (
-                1000 *
-                60
-            )
-        );
-
-
-    const seconds =
-        Math.floor(
-            (
-                distance %
-                (
-                    1000 *
-                    60
-                )
-            )
-            /
-            1000
-        );
-
-
-    document.getElementById(
-        "days"
-    ).innerText =
-        String(days).padStart(
-            2,
-            "0"
-        );
-
-
-    document.getElementById(
-        "hours"
-    ).innerText =
-        String(hours).padStart(
-            2,
-            "0"
-        );
-
-
-    document.getElementById(
-        "minutes"
-    ).innerText =
-        String(minutes).padStart(
-            2,
-            "0"
-        );
-
-
-    document.getElementById(
-        "seconds"
-    ).innerText =
-        String(seconds).padStart(
-            2,
-            "0"
-        );
-
+        ).padStart(2,"0");
 }
 
+countdown();
 
-updateCountdown();
+setInterval(countdown,1000);
 
-setInterval(
-    updateCountdown,
-    1000
+
+/* =====================================================
+   MÚSICA
+===================================================== */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+musicButton.addEventListener(
+    "click",
+    async()=>{
+
+        if(music.paused){
+
+            await music.play();
+
+            musicButton.textContent =
+                "PAUSAR MÚSICA";
+
+            musicButton.classList.add(
+                "playing"
+            );
+
+        }else{
+
+            music.pause();
+
+            musicButton.textContent =
+                "REPRODUCIR MÚSICA";
+
+            musicButton.classList.remove(
+                "playing"
+            );
+        }
+
+    }
 );
 
 
 /* =====================================================
-   EASTER EGG 1
-   CLIC EN 💙⃝✨
+   PARTÍCULAS CINEMATOGRÁFICAS
 ===================================================== */
 
-const heartTrigger =
+const canvas =
+    document.getElementById("dragonCanvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles=[];
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth *
+        devicePixelRatio;
+
+    canvas.height =
+        window.innerHeight *
+        devicePixelRatio;
+
+    ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+    );
+}
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+function createParticles(){
+
+    particles=[];
+
+    const amount =
+        window.innerWidth < 700
+        ? 120
+        : 260;
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        particles.push({
+
+            x:
+                Math.random() *
+                innerWidth,
+
+            y:
+                innerHeight *
+                (.45 +
+                Math.random()*.55),
+
+            size:
+                1 +
+                Math.random()*4,
+
+            speed:
+                .5 +
+                Math.random()*2.5,
+
+            drift:
+                -1 +
+                Math.random()*2,
+
+            life:
+                Math.random()
+
+        });
+
+    }
+}
+
+
+function animateParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        innerWidth,
+        innerHeight
+    );
+
+    particles.forEach(p=>{
+
+        p.y -= p.speed;
+
+        p.x += p.drift;
+
+        p.life -= .003;
+
+        if(
+            p.y < -20 ||
+            p.life <= 0
+        ){
+
+            p.y =
+                innerHeight +
+                Math.random()*100;
+
+            p.x =
+                Math.random() *
+                innerWidth;
+
+            p.life=1;
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle =
+            "rgba(255,"+
+            (150+Math.random()*100)+
+            ","+
+            (30+Math.random()*50)+
+            ","+
+            (.2+Math.random()*.8)+
+            ")";
+
+        ctx.shadowBlur=15;
+
+        ctx.shadowColor="#ffb000";
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(
+        animateParticles
+    );
+}
+
+createParticles();
+animateParticles();
+
+
+/* =====================================================
+   DRAGÓN
+===================================================== */
+
+const trigger =
     document.getElementById(
-        "heartTrigger"
+        "dragonTrigger"
+    );
+
+const overlay =
+    document.getElementById(
+        "dragonOverlay"
+    );
+
+let dragonTimer;
+
+
+function activateDragon(){
+
+    clearTimeout(
+        dragonTimer
+    );
+
+    overlay.classList.remove(
+        "active"
+    );
+
+    void overlay.offsetWidth;
+
+    createParticles();
+
+    overlay.classList.add(
+        "active"
     );
 
 
-heartTrigger.addEventListener(
-    "click",
-    function(){
+    dragonTimer =
+        setTimeout(
+            ()=>{
+                overlay.classList.remove(
+                    "active"
+                );
+            },
+            8000
+        );
+}
 
-        /* Crear muchos corazones
-           y estrellas */
 
-        for(
-            let i = 0;
-            i < 35;
-            i++
+trigger.addEventListener(
+    "pointerdown",
+    e=>{
+
+        e.preventDefault();
+
+        activateDragon();
+
+    }
+);
+
+
+/* =====================================================
+   CERRAR
+===================================================== */
+
+overlay.addEventListener(
+    "pointerdown",
+    e=>{
+
+        if(
+            e.target === overlay ||
+            e.target === canvas
         ){
 
-            createFallingItem();
+            overlay.classList.remove(
+                "active"
+            );
 
         }
 
@@ -1620,162 +1582,59 @@ heartTrigger.addEventListener(
 );
 
 
-function createFallingItem(){
+document.addEventListener(
+    "keydown",
+    e=>{
 
-    const item =
-        document.createElement(
-            "div"
-        );
+        if(
+            e.key === "Escape"
+        ){
 
-    item.className =
-        "falling-item";
+            overlay.classList.remove(
+                "active"
+            );
 
+        }
 
-    /* Elegir emoji */
-
-    const emojis = [
-        "💙",
-        "💙",
-        "💙",
-        "✨",
-        "⭐",
-        "🌟",
-        "💫"
-    ];
-
-
-    item.innerText =
-        emojis[
-            Math.floor(
-                Math.random() *
-                emojis.length
-            )
-        ];
-
-
-    /* Posición */
-
-    item.style.left =
-        Math.random() * 100 + "vw";
-
-
-    /* Tamaño */
-
-    item.style.fontSize =
-        (
-            18 +
-            Math.random() * 30
-        ) + "px";
-
-
-    /* Duración */
-
-    item.style.animationDuration =
-        (
-            2.5 +
-            Math.random() * 3
-        ) + "s";
-
-
-    /* Retraso */
-
-    item.style.animationDelay =
-        (
-            Math.random() * .8
-        ) + "s";
-
-
-    document.body.appendChild(
-        item
-    );
-
-
-    /* Eliminar después */
-
-    setTimeout(
-        function(){
-
-            item.remove();
-
-        },
-        6000
-    );
-
-}
+    }
+);
 
 
 /* =====================================================
-   EASTER EGG 2
-   MANTENER PRESIONADA LA TECLA Y
+   SECRETO Y
 ===================================================== */
 
-let yPressed = false;
+const secret =
+    document.getElementById(
+        "secretMode"
+    );
 
-let secretTimeout;
+let yPressed=false;
 
 
 document.addEventListener(
     "keydown",
-    function(event){
-
-        /* Evitar que se repita
-           mientras se mantiene pulsada */
+    e=>{
 
         if(
-            event.key.toLowerCase() === "y"
-            &&
+            e.key.toLowerCase()==="y" &&
             !yPressed
         ){
 
-            yPressed = true;
+            yPressed=true;
 
-            document.body.classList.add(
-                "secret-mode"
+            secret.classList.add(
+                "active"
             );
 
-
-            /* Mostrar mensaje */
-
-            const message =
-                document.getElementById(
-                    "secretMessage"
-                );
-
-            message.classList.add(
-                "show"
+            setTimeout(
+                ()=>{
+                    secret.classList.remove(
+                        "active"
+                    );
+                },
+                5000
             );
-
-
-            /* Estrellas adicionales */
-
-            for(
-                let i = 0;
-                i < 20;
-                i++
-            ){
-
-                createFallingItem();
-
-            }
-
-
-            clearTimeout(
-                secretTimeout
-            );
-
-
-            secretTimeout =
-                setTimeout(
-                    function(){
-
-                        message.classList.remove(
-                            "show"
-                        );
-
-                    },
-                    1800
-                );
-
         }
 
     }
@@ -1784,17 +1643,13 @@ document.addEventListener(
 
 document.addEventListener(
     "keyup",
-    function(event){
+    e=>{
 
         if(
-            event.key.toLowerCase() === "y"
+            e.key.toLowerCase()==="y"
         ){
 
-            yPressed = false;
-
-            document.body.classList.remove(
-                "secret-mode"
-            );
+            yPressed=false;
 
         }
 
@@ -1802,121 +1657,22 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   EASTER EGG 3
-   ESTRELLA FUGAZ DESPUÉS DE UN TIEMPO
-===================================================== */
+secret.addEventListener(
+    "pointerdown",
+    e=>{
 
+        if(e.target===secret){
 
-/*
-   Actualmente aparece después de 15 segundos.
+            secret.classList.remove(
+                "active"
+            );
 
-   Puedes cambiar 15000 por:
+        }
 
-   10000 = 10 segundos
-   20000 = 20 segundos
-   30000 = 30 segundos
-   60000 = 1 minuto
-*/
-
-
-const SHOOTING_STAR_DELAY =
-    15000;
-
-
-setTimeout(
-    function(){
-
-        createShootingStar();
-
-    },
-    SHOOTING_STAR_DELAY
+    }
 );
-
-
-function createShootingStar(){
-
-    const star =
-        document.createElement(
-            "div"
-        );
-
-    star.className =
-        "shooting-star";
-
-
-    /* Aparece en una zona
-       aleatoria del cielo */
-
-    star.style.top =
-        (
-            10 +
-            Math.random() * 30
-        ) + "vh";
-
-
-    star.style.left =
-        (
-            70 +
-            Math.random() * 25
-        ) + "vw";
-
-
-    document.body.appendChild(
-        star
-    );
-
-
-    /* Eliminar */
-
-    setTimeout(
-        function(){
-
-            star.remove();
-
-        },
-        1800
-    );
-
-}
-
-
-/* =====================================================
-   ESTRELLAS FUGACES ALEATORIAS
-===================================================== */
-
-/*
-   Después de la primera estrella,
-   aparecerán ocasionalmente otras.
-*/
-
-function randomShootingStar(){
-
-    const delay =
-        25000 +
-        Math.random() * 30000;
-
-
-    setTimeout(
-        function(){
-
-            createShootingStar();
-
-            randomShootingStar();
-
-        },
-        delay
-    );
-
-}
-
-
-randomShootingStar();
-
 
 </script>
 
-
 </body>
-
 </html>
